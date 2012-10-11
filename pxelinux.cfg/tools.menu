@@ -1,0 +1,26 @@
+MENU TITLE Fixes Menu
+
+LABEL Main Menu
+  MENU LABEL Return to Main Menu
+  KERNEL vesamenu.c32
+  APPEND pxelinux.cfg/default
+
+label memtest
+  menu label Memory Test: Memtest86+ v1.65
+  kernel image_tools/memtest/4.2/memtest86+
+
+label System Rescue CD
+	MENU LABEL System Rescue CD  
+	kernel image_tools/sysrescuecd/rescuecd
+	append initrd=image_tools/sysrescuecd/initram.igz dodhcp netboot=http://router:8080/sysrcd.dat
+
+label GParted Live
+	MENU LABEL GParted Live
+	kernel image_tools/gparted/vmlinuz
+	append initrd=image_tools/gparted/initrd.img boot=live config union=aufs noswap noprompt vga=788 fetch=http://router/gparted.squashfs
+#append initrd=image_tools/gparted/initrd.img boot=live config union=aufs noswap noprompt vga=788 fetch=tftp://router/image_tools/gparted/filesystem.squashfs
+
+label trk3
+	menu label  Run Trinity Rescue Kit 3.4 (default mode, with text menu)
+	kernel image_tools/trk/kernel.trk
+	append initrd=image_tools/trk/initrd.trk ramdisk_size=65536 root=/dev/ram0 vga=788 trknfs=10.5.1.1:/home/trk ip=::::::dhcp splash=verbose pci=conf1 trkmenu

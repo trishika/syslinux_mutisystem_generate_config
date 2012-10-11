@@ -1,0 +1,34 @@
+MENU TITLE Setup Menu
+
+LABEL Main Menu
+  MENU LABEL Return to Main Menu
+  KERNEL vesamenu.c32
+  APPEND pxelinux.cfg/default
+
+LABEL Debian Menu
+  MENU LABEL Debian Menu
+  KERNEL vesamenu.c32
+  APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/debian.menu
+
+LABEL ArchLinux Menu
+  MENU LABEL ArchLinux Menu
+  KERNEL vesamenu.c32
+  APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/archlinux.menu
+
+LABEL Ubuntu Menu
+  MENU LABEL Ubuntu Menu
+  KERNEL vesamenu.c32
+  APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/ubuntu.menu
+
+LABEL Fedora Menu
+  MENU LABEL Fedora Menu
+  KERNEL vesamenu.c32
+  APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/fedora.menu
+
+LABEL CentOS Menu
+  MENU LABEL CentOS Menu
+  KERNEL vesamenu.c32
+  APPEND pxelinux.cfg/graphics.conf pxelinux.cfg/centos.menu
+
+
+
