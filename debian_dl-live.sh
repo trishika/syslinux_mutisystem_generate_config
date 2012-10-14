@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION=6.0.4-live
+VERSION=6.0.5
 
 __dl()
 {
@@ -10,7 +10,7 @@ __dl()
 	fi
 
 	mkdir "$VERSION-$DISTRIB/$1"
-	wget "http://cdimage.debian.org/cdimage/release/$VERSION/$1/web/debian-live-6.0.4-$1-$DISTRIB.$3$SUFIX" -O "$VERSION-$DISTRIB/$1/$3"
+	wget "http://cdimage.debian.org/cdimage/release/$VERSION-live/$1/web/debian-live-$VERSION-$1-$DISTRIB.$3$SUFIX" -O "$VERSION-$DISTRIB/$1/$3"
 
 	if [ "$3" = "squashfs" ]; then
 		sudo ln -s `pwd`"/$VERSION-$DISTRIB/$1/$3" "/var/www/debian-live-$VERSION-$DISTRIB-$1.$3"
