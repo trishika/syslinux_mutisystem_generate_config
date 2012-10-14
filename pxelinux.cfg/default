@@ -6,7 +6,7 @@ menu INCLUDE pxelinux.cfg/graphics.conf
 MENU AUTOBOOT Starting Local System in # seconds
 
 label bootlocal
-  menu label No PXE Boot
+  menu label Exit
   menu default
   localboot 0
   timeout 80
@@ -34,7 +34,6 @@ LABEL hdt
 LABEL cmd
         MENU LABEL CMD
         COM32 cmd.c32
-
 
 LABEL reboot
         MENU LABEL Reboot
