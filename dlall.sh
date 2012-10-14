@@ -13,7 +13,7 @@ dl()
 				if [ -f $image_path/$distrib/$version ]; then
 					echo $version
 					cd $image_path/$distrib
-					./$version
+					. $version
 					cd -
 				fi
 			done
