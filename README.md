@@ -54,3 +54,10 @@ To use this script on an usb you need to install the syslinux mbr to the usb key
 
 
 N.B: There is currently no working way to configure a boot on a "live" image (ie : not only an initrd) from usb key with these scripts.
+
+Copying
+=======
+
+Copyright (C) 2012, Aurélien Chabot aurelien@chabot.fr
+
+Licensed under GPLv3
