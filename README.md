@@ -1,9 +1,11 @@
 
-===== SYSLINUX =====
+SYSLINUX
+========
 
-=== IMAGE FILE ===
+IMAGE FILE
+----------
 
--- image --
+	* image
 
 This folder contains distribution image file. His folder stuct follow :
 
@@ -23,25 +25,28 @@ tftpboot
 Each distrib folder have to contains a dl.sh script that is able to down load back distrib file.
 The script "mkconfig.sh" build the syslinux configuration file for these system.
 
--- image_tools --
+	* image_tools
 
 This is a tool folder, for various stuff that can be used throught syslinux
 
 
-=== CONFIGURATION ===
+CONFIGURATION
+-------------
 
 The image configuration is generate with mkconfig.sh. The image tools configuration is for now done manually.
 
 
-=== OTHER SCRIPT ===
+OTHER SCRIPT
+------------
 
--- bak.sh --
+	* bak.sh
 
 This script do a tar of the main syslinux config/image file.
 Distrib image are not backup, only their dl.sh script.
 
 
-=== USB KEY ===
+USB KEY
+-------
 
 To use this script on an usb you need to install the syslinux mbr to the usb key :
 
