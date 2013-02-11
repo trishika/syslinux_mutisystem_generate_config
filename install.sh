@@ -18,9 +18,28 @@
 
 sym=0
 
-if [ $@ = 0 ]; then
-	echo "Missing installation dir"
-	exit
+export BOLD=$(tput bold)
+export RED=$(tput setaf 1)
+export GREEN=$(tput setaf 2)
+export NORMAL=$(tput sgr0)
+export LINE=$(printf "%78s")
+export UNDERLINE=$(tput smul)
+export N_UNDERLINE=$(tput rmul)
+
+display_help()
+{
+	printf "${BOLD}DESCRIPTION${NORMAL}\n"
+	printf "\tBuild basic tree in wanting directory\n\n"
+	printf "${BOLD}Usage : \n"
+	printf "\t${BOLD}./install_version${NORMAL} <destination>\n\n"
+	printf "${BOLD}EXEMPLE${NORMAL}\n\t${BOLD}./install.sh${NORMAL} pxe_dir\n"
+}
+
+
+if [ $# = 0 ]; then
+	printf "\n${BOLD}${RED}Missing installation dir${NORMAL}\n\n"
+	display_help
+	exit 1
 fi
 
 __install()
@@ -35,7 +54,7 @@ __install()
 __install bak.sh $1
 __install dlall.sh $1
 __install mkconfig.sh $1
-__install README $1
+__install README.md $1
 __install syslinux.cfg $1
 cp -R pxelinux.cfg $1
 
@@ -60,3 +79,4 @@ mkdir $1/image_live
 
 mkdir $1/image_live/debian-live
 __install debian_dl-live.sh $1/image_live/debian-live/dl-live.sh
+
