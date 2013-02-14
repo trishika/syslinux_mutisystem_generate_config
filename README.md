@@ -5,11 +5,13 @@ USAGE
 
 The script install.sh allow you to install the script and directory architecture to a folder.
 For example to install stuff into directory `my_pxe_dir` launch :
+
 	./install.sh my_pxe_dir
 
 ### Download distribution image
 
 After installing script to your target directory, got to it and launch :
+
 	./dlall.sh
 
 This will download all distribution image that have script in directory architecture.
@@ -17,6 +19,7 @@ This will download all distribution image that have script in directory architec
 ### Generate syslinux configuration
 
 Once you've download distribution image launch this script to generate the syslinux distributiom :
+
 	./mkconfig.sh
 
 SYSLINUX
