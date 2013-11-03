@@ -30,6 +30,9 @@ base_menu()
 {
 	rm $menu_path/$1.menu
 
+	write_file "$1" "# This is a generated file"
+	write_file "$1" "# DO NOT MODIFY IT"
+
 	write_file "$1" "MENU TITLE $1"
 	write_file "$1" ""
 	write_file "$1" "LABEL Main Menu"
