@@ -68,6 +68,10 @@ launch_item()
 			else
 				if [ "$sys" = "filesystem.squashfs" ] || [ "$sys" = "squashfs" ]; then
 					squashfs=$sys
+				else
+					if [ "$sys" = "squashfs.url" ]; then
+						url=`cat $path/$sys`
+					fi
 				fi
 			fi
 		fi
@@ -83,6 +87,10 @@ launch_item()
 
 		if [ ! -z "$squashfs" ]; then
 			args="$args boot=live config nodhcp fetch=http://$host/$2-$3-$4.$squashfs"
+		else
+			if [ ! -z "$url" ]; then
+				args="$args boot=live config nodhcp fetch=$url"
+			fi
 		fi
 
 		write_file "$2" "LABEL $2 $3 $4"

@@ -19,14 +19,23 @@
 VERSION=7.2
 VERSION_F="${VERSION}.0"
 
+DL_SQUASFS=false
+
 __dl()
 {
 	mkdir "$VERSION-$DISTRIB/$1"
-	wget "http://cdimage.debian.org/cdimage/release/$VERSION_F-live/$1/webboot/debian-live-$VERSION-$1-$DISTRIB.$3" -O "$VERSION-$DISTRIB/$1/$3"
+	url="http://cdimage.debian.org/cdimage/release/$VERSION_F-live/$1/webboot/debian-live-$VERSION-$1-$DISTRIB.$3"
 
 	if [ "$3" = "squashfs" ]; then
-		sudo ln -s `pwd`"/$VERSION-$DISTRIB/$1/$3" "/var/www/debian-live-$VERSION-$DISTRIB-$1.$3"
+		if $DL_SQUASFS ; then
+			sudo ln -s `pwd`"/$VERSION-$DISTRIB/$1/$3" "/var/www/debian-live-$VERSION-$DISTRIB-$1.$3"
+		else
+			echo $url > "$VERSION-$DISTRIB/$1/squashfs.url"
+			return
+		fi
 	fi
+
+	wget $url -O "$VERSION-$DISTRIB/$1/$3"
 }
 
 __dl_distrib()
