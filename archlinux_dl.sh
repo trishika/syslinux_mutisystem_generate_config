@@ -19,7 +19,7 @@
 __dl()
 {
 	mkdir $2
-	wget "http://mir1.archlinux.fr/archlinux/iso/archboot/latest/boot/$1" -O $2/$3
+	wget "http://mir.archlinux.fr/iso/archboot/latest/boot/$1" -O $2/$3
 }
 
 __dl initramfs_i686.img x86_32 initrd.img

@@ -16,17 +16,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-VERSION=6.0.5
+VERSION=7.2
+VERSION_F="${VERSION}.0"
 
 __dl()
 {
-	SUFIX=""
-	if [ "$3" != "squashfs" ]; then
-		SUFIX="-2.6.32-5-$2"
-	fi
-
 	mkdir "$VERSION-$DISTRIB/$1"
-	wget "http://cdimage.debian.org/cdimage/release/$VERSION-live/$1/web/debian-live-$VERSION-$1-$DISTRIB.$3$SUFIX" -O "$VERSION-$DISTRIB/$1/$3"
+	wget "http://cdimage.debian.org/cdimage/release/$VERSION_F-live/$1/webboot/debian-live-$VERSION-$1-$DISTRIB.$3" -O "$VERSION-$DISTRIB/$1/$3"
 
 	if [ "$3" = "squashfs" ]; then
 		sudo ln -s `pwd`"/$VERSION-$DISTRIB/$1/$3" "/var/www/debian-live-$VERSION-$DISTRIB-$1.$3"

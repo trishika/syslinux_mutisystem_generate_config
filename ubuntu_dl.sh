@@ -16,8 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-VERSION=quantal
-#VERSION=natty
+VERSION=saucy
 
 if [ $# -gt 0 ]
  then

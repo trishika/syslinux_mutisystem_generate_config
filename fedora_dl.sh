@@ -16,15 +16,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-VERSION=17
+VERSION=19
 
 mkdir $VERSION
 
 __dl()
 {
 	mkdir $VERSION/$1
-#	wget "http://mir01.syntis.net/fedora/linux/releases/$VERSION/Fedora/$1/os/images/pxeboot/$2" -O $VERSION/$1/$2
-	wget "http://mir01.syntis.net/fedora/linux/releases/$VERSION/Fedora/$1/os/isolinux/$2" -O $VERSION/$1/$2
+	wget "http://download.fedoraproject.org/pub/fedora/linux/releases/$VERSION/Fedora/$1/os/images/pxeboot/$2" -O $VERSION/$1/$2
 }
 
 __dl x86_64 initrd.img
